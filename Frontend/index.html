@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Automated Greenhouse - Home</title>
+    <meta name="description" content="This is my website for Project One.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/logo.svg">
+    <link rel="apple-touch-icon" href="img/logo.png">
+    <link rel="manifest" href="img/logo.json">
+    <link rel="stylesheet" href="style/normalize.css">
+    <link rel="stylesheet" href="style/screen.css">
+    <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"
+        integrity="sha384-LzhRnpGmQP+lOvWruF/lgkcqD+WDVt9fU3H4BWmwP5u5LTmkUGafMcpZKNObVMLU"
+        crossorigin="anonymous"></script>
+    <script src="script/datahandler.js"></script>
+    <script src="script/app.js"></script>
+</head>
+<body class="js-index">
+    <div class="c-page">
+        <header class="o-row o-row--header">
+            <div class="o-container">
+                <div class="c-header">
+                    <div class="c-header__logo">
+                        <a href="index.html"><img class="c-logo" src="img/logo_name.svg" alt="logo website"></a>
+                    </div>
+                    <div class="c-header__nav">
+                        <nav>   
+                            <ul class="o-list c-nav__list u-mb-clear">
+                                <li class="c-nav__item is-selected"><a href="index.html" class="c-nav__link">Home</a></li>
+                                <li class="c-nav__item"><a href="history.html" class="c-nav__link">History</a></li>
+                                <li class="c-nav__item"><a href="settings.html" class="c-nav__link">Settings</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="c-header__mobile-nav-trigger">
+                        <button class="o-button-reset c-nav-trigger js-toggle-nav">
+                            <svg class="c-nav-trigger__svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="o-row o-row--top">
+            <div class="o-container">
+                <h1 class="c-lead--lg">Welcome</h1>
+                <h2 class="c-lead--md">Live statistics</h2>
+                <div class="c-card">
+                    <div class="o-layout o-layout--gutter-lg o-layout--align-center">
+                        <div class="o-layout__item u-flex-basis-auto c-icon-box--grey js-icon-box-water"><img class="c-icon" src="img/watering-can.svg" alt="Watering can icon"></div>
+                        <div class="o-layout__item u-flex-basis-auto"><p>Water level status<br><div class="js-waterlvl">-</div></p></div>
+                    </div>
+                </div>
+    
+                <div class="c-card c-cards-group">
+                    <div class="o-layout o-layout--gutter-lg o-layout--align-center">
+                        <div class="o-layout__item u-flex-basis-auto c-icon-box--grey js-icon-box-temp"><img class="c-icon" src="img/thermometer.svg" alt="Thermometer icon"></div>
+                        <div class="o-layout__item u-flex-basis-auto"><p>Temperature<br><div class="js-sensor-temp">- °C</div></p></div>
+                    </div>
+                </div>
+    
+                <div class="c-card c-cards-group">
+                    <div class="o-layout o-layout--gutter-lg o-layout--align-center">
+                        <div class="o-layout__item u-flex-basis-auto c-icon-box--grey js-icon-box-humidity"><img class="c-icon" src="img/humidity.svg" alt="Humidity icon"></div>
+                        <div class="o-layout__item u-flex-basis-auto"><p>Humidity<br><div class="js-sensor-humidity">- %</div></p></div>
+                    </div>
+                </div>
+    
+                <div class="c-card c-cards-group">
+                    <div class="o-layout o-layout--gutter-lg o-layout--align-center">
+                        <div class="o-layout__item u-flex-basis-auto c-icon-box--grey js-icon-box-soil"><img class="c-icon" src="img/soil-moisture.svg" alt="Soil moisture icon"></div>
+                        <div class="o-layout__item u-flex-basis-auto"><p>Soil moisture<br><div class="js-sensor-soil">- %</div></p></div>
+                    </div>
+                </div>
+    
+                <div class="c-card c-cards-group">
+                    <div class="o-layout o-layout--gutter-lg o-layout--align-center">
+                        <div class="o-layout__item u-flex-basis-auto c-icon-box--grey js-icon-box-co2"><img class="c-icon" src="img/co2.svg" alt="CO2 cloud icon"></div>
+                        <div class="o-layout__item u-flex-basis-auto"><p>eCO2<br><div class="js-sensor-CO2">- ppm</div></p></div>
+                    </div>
+                </div>
+    
+                <div class="c-card c-cards-group">
+                    <div class="o-layout o-layout--gutter-lg o-layout--align-center">
+                        <div class="o-layout__item u-flex-basis-auto c-icon-box--grey js-icon-box-light"><img class="c-icon" src="img/light.svg" alt="sun icon"></div>
+                        <div class="o-layout__item u-flex-basis-auto"><p>Light intensity<br><div class="js-sensor-light">- %</div></p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <section class="o-row">
+            <div class="o-container">
+                <h2 class="c-lead--md">Management</h2>
+                <p class="c-info c-lead--sm">Current status windows: </p><div class="js-windows c-info c-lead--sm">unknown</div><br>
+                <div class="c-link-cta js-windows-btn" data-status="0">Open/close windows</div>
+                <p class="c-info c-lead--sm"><br>Watered the plants at: </p><div class="js-watered c-info c-lead--sm">unknown</div><br>
+                <div class="c-link-cta js-water-btn">Add water</div>
+                <p class="c-info c-lead--sm"><br>Running since: </p><div class="js-startup c-info c-lead--sm">-</div><br>
+                <div class="c-link-cta js-power-btn">Turn Raspberry Pi OFF</div>
+            </div>
+        </section>
+    
+        <footer class="o-row o-row--grey">
+            <div class="o-container">
+                <p class="c-lead--xsm">Automated Greenhouse<br>Project One 1MCT2 <br>Melissa Van de Velde</p>
+            </div>
+        </footer>
+    </div>
+    <aside class="c-mobile-nav">
+        <div class="c-mobile-nav__bg"></div>
+        <div class="c-mobile-nav__body">
+            <div class="c-mobile-nav__header">
+                <a href="index.html"><img class="c-logo c-logo__symbol" src="img/logo_name.svg" alt="logo website"></a>
+                <button class="o-button-reset c-nav-trigger js-toggle-nav">
+                    <svg class="c-nav-trigger__svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="c-mobile-nav__nav c-mobile-nav__nav--main">
+                <nav class="c-nav">   
+                    <ul class="o-list c-nav__list">
+                        <li class="c-nav__item"><a href="index.html" class="c-nav__link--mobile">Home</a></li>
+                        <li class="c-nav__item"><a href="history.html" class="c-nav__link--mobile">History</a></li>
+                        <li class="c-nav__item"><a href="settings.html" class="c-nav__link--mobile">Settings</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </aside>
+</body>
+</html>
